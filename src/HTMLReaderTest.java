@@ -36,6 +36,7 @@ public class HTMLReaderTest {
         int firstComposer = positions.get(1);
         String shortenedSearch = HTMLCode.substring(firstComposer);
         //Log.d(MY_TAG, shortenedSearch);
+        System.out.println(shortenedSearch);
         int sideCarrotTitleStart = shortenedSearch.indexOf(">");
         int sideCarrotTitleEnd = shortenedSearch.indexOf("<");
         artist = shortenedSearch.substring(sideCarrotTitleStart + 1, sideCarrotTitleEnd);
