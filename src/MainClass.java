@@ -1074,9 +1074,9 @@ public class MainClass {
                 "<!-- Timer: 1.0525 secs | Server: 127.0.0.1 -->");
 
         //System.out.println(htmlReaderTest.findComposer());
-        System.out.println(htmlReaderTest.findLyricsURL());
+        //System.out.println(htmlReaderTest.findLyricsURL());
         //System.out.println(htmlReaderTest.findTitle());
-        //TitleToSpotifyURITest titleToSpotifyURITest = new TitleToSpotifyURITest("Think of Me");
-        //System.out.println(titleToSpotifyURITest.constructSearchURL());
+        TitleToSpotifyURITest titleToSpotifyURITest = new TitleToSpotifyURITest("Think of Me");
+        System.out.println(titleToSpotifyURITest.constructSearchURL());
     }
 }
