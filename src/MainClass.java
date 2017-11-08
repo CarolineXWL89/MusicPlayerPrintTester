@@ -2183,7 +2183,433 @@ public class MainClass {
 
         ArrayList<String> title = lyricsPageHTMLReaderTest.separateWords("Never Gonna Give You Up");
         ArrayList<String> artist = lyricsPageHTMLReaderTest.separateWords("Rick Astly");
+        //String lyricsSearchLink = lyricsPageHTMLReaderTest.createAToZLyricsSearchLink(title, artist);
+        //System.out.println(lyricsSearchLink);
 
+        ArrayList<String> testerHTMLLines = new ArrayList<>();
+        testerHTMLLines = lyricsPageHTMLReaderTest.findLyrics("\n" +
+                "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "<meta charset=\"utf-8\">\n" +
+                "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n" +
+                "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n" +
+                "<meta name=\"description\" content=\"Lyrics to &quot;Never Gonna Give You Up&quot; song by Rick Astley: We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of Y...\"> \n" +
+                "<meta name=\"keywords\" content=\"Never Gonna Give You Up lyrics, Rick Astley Never Gonna Give You Up lyrics, Rick Astley lyrics\">\n" +
+                "<meta name=\"robots\" content=\"noarchive\">\n" +
+                "<meta property=\"og:image\" content=\"//www.azlyrics.com/az_logo_tr.png\">\n" +
+                "<title>Rick Astley Lyrics - Never Gonna Give You Up</title>\n" +
+                "\n" +
+                "<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css\">\n" +
+                "<link rel=\"stylesheet\" href=\"//www.azlyrics.com/bsaz.css\">\n" +
+                "\n" +
+                "<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->\n" +
+                "<!--[if lt IE 9]>\n" +
+                "<script src=\"https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js\"></script>\n" +
+                "<script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>\n" +
+                "<![endif]-->\n" +
+                "\n" +
+                "<script type=\"text/javascript\">\n" +
+                "ArtistName = \"Rick Astley\";\n" +
+                "SongName = \"Never Gonna Give You Up\";\n" +
+                "function submitCorrections(){\n" +
+                "\tif (!confirm('These lyrics are reviewed and considered to be correct.\\nAre you sure want to proceed?')) return false;\n" +
+                "\tdocument.getElementById('corlyr').submit();\n" +
+                "\treturn false;\n" +
+                "}\n" +
+                "</script>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "\n" +
+                "<!-- Begin comScore Tag -->\n" +
+                "<script>\n" +
+                "  var _comscore = _comscore || [];\n" +
+                "  _comscore.push({ c1: \"2\", c2: \"6772046\" });\n" +
+                "  (function() {\n" +
+                "    var s = document.createElement(\"script\"), el = document.getElementsByTagName(\"script\")[0]; s.async = true;\n" +
+                "    s.src = (document.location.protocol == \"https:\" ? \"https://sb\" : \"http://b\") + \".scorecardresearch.com/beacon.js\";\n" +
+                "    el.parentNode.insertBefore(s, el);\n" +
+                "  })();\n" +
+                "</script>\n" +
+                "<noscript>\n" +
+                "  <img src=\"https://sb.scorecardresearch.com/p?c1=2&c2=6772046&cv=2.0&cj=1\" alt=\"\">\n" +
+                "</noscript>\n" +
+                "<!-- End comScore Tag -->\n" +
+                "\n" +
+                "<div id=\"fb-root\"></div>\n" +
+                "<script>(function(d, s, id) {\n" +
+                "  var js, fjs = d.getElementsByTagName(s)[0];\n" +
+                "  if (d.getElementById(id)) return;\n" +
+                "  js = d.createElement(s); js.id = id;\n" +
+                "  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3\";\n" +
+                "  fjs.parentNode.insertBefore(js, fjs);\n" +
+                "}(document, 'script', 'facebook-jssdk'));</script>\n" +
+                "\n" +
+                "  <nav class=\"navbar navbar-default navbar-static-top noprint\">\n" +
+                "  <div class=\"container\">\n" +
+                "    <!-- Brand and toggle get grouped for better mobile display -->\n" +
+                "    <div class=\"navbar-header\">\n" +
+                "      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#search-collapse\">\n" +
+                "        <span class=\"glyphicon glyphicon-search\"></span>\n" +
+                "      </button>\n" +
+                "      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#artists-collapse\">\n" +
+                "        <span class=\"glyphicon glyphicon-th-list\"></span>\n" +
+                "      </button>\n" +
+                "      <a class=\"navbar-brand\" href=\"//www.azlyrics.com\"><img alt=\"AZLyrics.com\" class=\"pull-left\" style=\"max-height:40px; margin-top:-10px;\" src=\"//www.azlyrics.com/az_logo_tr.png\"></a>\n" +
+                "    </div>\n" +
+                "    <ul class=\"collapse navbar-collapse nav navbar-nav\" id=\"artists-collapse\">\n" +
+                "    <li>\n" +
+                "    <div class=\"btn-group text-center\" role=\"group\">\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/a.html\">A</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/b.html\">B</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/c.html\">C</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/d.html\">D</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/e.html\">E</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/f.html\">F</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/g.html\">G</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/h.html\">H</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/i.html\">I</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/j.html\">J</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/k.html\">K</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/l.html\">L</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/m.html\">M</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/n.html\">N</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/o.html\">O</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/p.html\">P</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/q.html\">Q</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/r.html\">R</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/s.html\">S</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/t.html\">T</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/u.html\">U</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/v.html\">V</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/w.html\">W</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/x.html\">X</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/y.html\">Y</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/z.html\">Z</a>\n" +
+                "    <a class=\"btn btn-menu\" href=\"//www.azlyrics.com/19.html\">#</a>\n" +
+                "    </div>\n" +
+                "    </li>\n" +
+                "    </ul>\n" +
+                "\n" +
+                "    <div class=\"collapse navbar-collapse\" id=\"search-collapse\">\n" +
+                "\n" +
+                "        <form class=\"navbar-form navbar-right search\" method=\"get\" action=\"//search.azlyrics.com/search.php\" role=\"search\">\n" +
+                "         <div class=\"input-group\">  \n" +
+                "\t\t<input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"q\" id=\"q\">\n" +
+                "       \t\t<span class=\"input-group-btn\">\n" +
+                "            \t  <button class=\"btn btn-primary\" type=\"submit\"><span class=\"glyphicon glyphicon-search\"></span> Search</button>\n" +
+                "          \t</span>\n" +
+                " \t  </div>   \n" +
+                "\t</form>\n" +
+                "\n" +
+                "    </div><!-- /.navbar-collapse -->\n" +
+                "    </div><!-- /.container -->\n" +
+                "  </nav>\n" +
+                "\n" +
+                "<!-- top ban -->\n" +
+                "  <div class=\"lboard-wrap noprint\">\n" +
+                "  <div class=\"container\">\n" +
+                "    <div class=\"row\">\n" +
+                "       <div class=\"col-xs-12 top-ad text-center\">\n" +
+                "         <span id=\"cf_banner_top_nofc\"></span>\n" +
+                "       </div>\n" +
+                "    </div>\n" +
+                "  </div>\n" +
+                "  </div>\n" +
+                "\n" +
+                "<!-- main -->\n" +
+                "<div class=\"container main-page\">\n" +
+                "<div class=\"row\">\n" +
+                "<div class=\"col-lg-2 text-center hidden-md hidden-sm hidden-xs noprint\">\n" +
+                "   <div class=\"sky-ad\"></div>\n" +
+                "</div>\n" +
+                "\n" +
+                "<!-- content -->\n" +
+                "<div class=\"col-xs-12 col-lg-8 text-center\">\n" +
+                "\n" +
+                "<div class=\"div-share noprint\">\n" +
+                "<div class=\"fb-like\" style=\"float:left;\" data-href=\"https://www.azlyrics.com/lyrics/rickastley/nevergonnagiveyouup.html\" data-layout=\"button_count\" data-action=\"like\" data-show-faces=\"false\" data-share=\"false\"></div>\n" +
+                "<!-- AddThis Button BEGIN -->\n" +
+                "<script type=\"text/javascript\" src=\"https://s7.addthis.com/js/300/addthis_widget.js#username=azlyrics\"></script>\n" +
+                "<div class=\"addthis_toolbox addthis_default_style\" style=\"float:right;\">\n" +
+                "<a class=\"btn btn-xs btn-share addthis_button_email\">\n" +
+                "<span class=\"playblk\"><img src=\"//www.azlyrics.com/images/email.svg\" width=\"56\" height=\"18\" class=\"playblk\" alt=\"Email\"></span>\n" +
+                "</a>\n" +
+                "<a class=\"btn btn-xs btn-share addthis_button_print\" style=\"margin-right: 0px !important;\">\n" +
+                "<span class=\"playblk\"><img src=\"//www.azlyrics.com/images/print.svg\" width=\"56\" height=\"18\" class=\"playblk\" alt=\"Print\"></span>\n" +
+                "</a>\n" +
+                "</div>\n" +
+                "</div>\n" +
+                "<!-- AddThis Button END -->\n" +
+                "\n" +
+                "<div class=\"div-share\"><h1>\"Never Gonna Give You Up\" lyrics</h1></div>\n" +
+                "\n" +
+                "<div class=\"lyricsh\">\n" +
+                "<h2><b>Rick Astley Lyrics</b></h2>\n" +
+                "</div>\n" +
+                "\n" +
+                "<div class=\"ringtone\">\n" +
+                "<span id=\"cf_text_top\"></span>\n" +
+                "</div>\n" +
+                "\n" +
+                "<b>\"Never Gonna Give You Up\"</b><br>\n" +
+                "<br>\n" +
+                "\n" +
+                "<div>\n" +
+                "<!-- Usage of azlyrics.com content by any third-party lyrics provider is prohibited by our licensing agreement. Sorry about that. -->\n" +
+                "We're no strangers to love<br>\n" +
+                "You know the rules and so do I<br>\n" +
+                "A full commitment's what I'm thinking of<br>\n" +
+                "You wouldn't get this from any other guy<br>\n" +
+                "<br>\n" +
+                "I just wanna tell you how I'm feeling<br>\n" +
+                "Gotta make you understand<br>\n" +
+                "<br>\n" +
+                "Never gonna give you up<br>\n" +
+                "Never gonna let you down<br>\n" +
+                "Never gonna run around and desert you<br>\n" +
+                "Never gonna make you cry<br>\n" +
+                "Never gonna say goodbye<br>\n" +
+                "Never gonna tell a lie and hurt you<br>\n" +
+                "<br>\n" +
+                "We've known each other for so long<br>\n" +
+                "Your heart's been aching, but<br>\n" +
+                "You're too shy to say it<br>\n" +
+                "Inside, we both know what's been going on<br>\n" +
+                "We know the game and we're gonna play it<br>\n" +
+                "<br>\n" +
+                "And if you ask me how I'm feeling<br>\n" +
+                "Don't tell me you're too blind to see<br>\n" +
+                "<br>\n" +
+                "Never gonna give you up<br>\n" +
+                "Never gonna let you down<br>\n" +
+                "Never gonna run around and desert you<br>\n" +
+                "Never gonna make you cry<br>\n" +
+                "Never gonna say goodbye<br>\n" +
+                "Never gonna tell a lie and hurt you<br>\n" +
+                "<br>\n" +
+                "Never gonna give you up<br>\n" +
+                "Never gonna let you down<br>\n" +
+                "Never gonna run around and desert you<br>\n" +
+                "Never gonna make you cry<br>\n" +
+                "Never gonna say goodbye<br>\n" +
+                "Never gonna tell a lie and hurt you<br>\n" +
+                "<br>\n" +
+                "(Ooh, give you up)<br>\n" +
+                "(Ooh, give you up)<br>\n" +
+                "Never gonna give, never gonna give<br>\n" +
+                "(Give you up)<br>\n" +
+                "Never gonna give, never gonna give<br>\n" +
+                "(Give you up)<br>\n" +
+                "<br>\n" +
+                "We've known each other for so long<br>\n" +
+                "Your heart's been aching, but<br>\n" +
+                "You're too shy to say it<br>\n" +
+                "Inside, we both know what's been going on<br>\n" +
+                "We know the game and we're gonna play it<br>\n" +
+                "<br>\n" +
+                "I just wanna tell you how I'm feeling<br>\n" +
+                "Gotta make you understand<br>\n" +
+                "<br>\n" +
+                "Never gonna give you up<br>\n" +
+                "Never gonna let you down<br>\n" +
+                "Never gonna run around and desert you<br>\n" +
+                "Never gonna make you cry<br>\n" +
+                "Never gonna say goodbye<br>\n" +
+                "Never gonna tell a lie and hurt you<br>\n" +
+                "<br>\n" +
+                "Never gonna give you up<br>\n" +
+                "Never gonna let you down<br>\n" +
+                "Never gonna run around and desert you<br>\n" +
+                "Never gonna make you cry<br>\n" +
+                "Never gonna say goodbye<br>\n" +
+                "Never gonna tell a lie and hurt you<br>\n" +
+                "<br>\n" +
+                "Never gonna give you up<br>\n" +
+                "Never gonna let you down<br>\n" +
+                "Never gonna run around and desert you<br>\n" +
+                "Never gonna make you cry<br>\n" +
+                "Never gonna say goodbye<br>\n" +
+                "Never gonna tell a lie and hurt you\n" +
+                "</div>\n" +
+                "\n" +
+                "<br><br>\n" +
+                "\n" +
+                "<!-- MxM banner -->\n" +
+                "<div class=\"noprint\">\n" +
+                "<script>\n" +
+                "if  ( /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) \n" +
+                "  {\n" +
+                "     document.write('<div style=\"margin-left: auto; margin-right: auto;\">'+\n" +
+                "  '<iframe scrolling=\"no\" style=\"border: 0px none; overflow:hidden;\" src=\"//adv.mxmcdn.net/br/t1.0/m_js/e_0/sn_0/l_13343320/su_0/tr_kuidlGxnLc3XwQPQMEKDzyUZbWVwOLgTKrWdYCGo1xwyhpgPEZIDxPIJS36Etprwu25NGBVl1ZNRBBJC6lJBTUJLqHOXnAb42Cg3ppxgwz_KNCn4eLlByewajrwIJRKxuTtwKWMr-p3cRzxh-sGVzw6ukAUaGBB4TJi67nuiHb7FLu07sLOxqaCmHWqoSq64DWtRx2gowWGsUwi2LrwrnBS0wl7W6aRzGEyaKOSatX4WXHG3wTze_zI3ICgERr35rUX20AwG6hItSkZLmMx9gvFqWZnK1JDj7yiNwFIhtwu1Llu3NZljyWuZQMPKjxeqyFgmXFN0zWLbqVNDnXQ-MvmZcn4ay2sjEMtJeRdWpY8k0zQqitGpBOr6G756Y_fF/\" width=\"290px\" height=\"50px\"></iframe>'+\n" +
+                "  '</div>');\n" +
+                "   }\n" +
+                "</script>\n" +
+                "<br><br>\n" +
+                "</div>\n" +
+                "\n" +
+                "<form id=\"addsong\" style=\"visible:hidden; margin:0;\" action=\"../../add.php\" method=\"post\">\n" +
+                "<input type=\"hidden\" name=\"what\" value=\"add_song\">\n" +
+                "<input type=\"hidden\" name=\"artist\" value=\"Rick Astley\">\n" +
+                "</form>\n" +
+                "\n" +
+                "<form action=\"../../add.php\" method=\"post\" id=\"corlyr\">\n" +
+                "<input type=\"hidden\" name=\"what\" value=\"correct_lyrics\">\n" +
+                "<input type=\"hidden\" name=\"song_id\" value=\"274705\">\n" +
+                "</form>\n" +
+                "\n" +
+                "<div class=\"smt noprint\">\n" +
+                "<a class=\"btn btn-share\" href=\"#\" onclick=\"submitCorrections()\"><span class=\"glyphicon glyphicon-pencil\"></span> Submit Corrections</a>\n" +
+                "</div>\n" +
+                "\n" +
+                "<div class=\"smt\"></div>\n" +
+                "\n" +
+                "<div class=\"noprint\" style=\"padding: 15px 0\">\n" +
+                "<span id=\"cf_text_bottom\"></span>\n" +
+                "</div>\n" +
+                "\n" +
+                "<!-- credits -->\n" +
+                "<div class=\"smt\"><small>Writer(s): Michael Stock, Peter Alan Waterman, Matthew James Aitken</small>\n" +
+                "<br>\n" +
+                "</div>\n" +
+                "\n" +
+                "<!-- artist link -->\n" +
+                "<ol class=\"breadcrumb noprint\" itemscope itemtype=\"https://schema.org/BreadcrumbList\">\n" +
+                "  <li itemprop=\"itemListElement\" itemscope itemtype=\"https://schema.org/ListItem\"><a itemprop=\"item\" href=\"//www.azlyrics.com\"><span itemprop=\"name\">AZLyrics</span></a></li>\n" +
+                "  <li itemprop=\"itemListElement\" itemscope itemtype=\"https://schema.org/ListItem\"><a itemprop=\"item\" href=\"//www.azlyrics.com/r.html\"><span itemprop=\"name\">R</span></a></li>\n" +
+                "  <li itemprop=\"itemListElement\" itemscope itemtype=\"https://schema.org/ListItem\"><a itemprop=\"item\" href=\"//www.azlyrics.com/r/rickastley.html\"><span itemprop=\"name\">Rick Astley Lyrics</span></a></li>\n" +
+                "</ol>\n" +
+                "\n" +
+                "<!-- album songlists -->\n" +
+                "<div class=\"panel album-panel noprint\">\n" +
+                "  <span class=\"glyphicon glyphicon-cd\" style=\"margin-right:5px;\"></span><a href=\"#24924\" data-toggle=\"collapse\">\"Whenever You Need Somebody\" (1987)</a>\n" +
+                "</div>\n" +
+                "\n" +
+                "<div class=\"collapse noprint\" id=\"24924\">\n" +
+                "<div class=\"panel songlist-panel\">\n" +
+                "<a href=\"nevergonnagiveyouup.html\">Never Gonna Give You Up</a><br>\n" +
+                "<a href=\"wheneveryouneedsomebody.html\">Whenever You Need Somebody</a><br>\n" +
+                "<a href=\"togetherforever.html\">Together Forever</a><br>\n" +
+                "<a href=\"itwouldtakeastrongstrongman.html\">It Would Take A Strong Strong Man</a><br>\n" +
+                "<a href=\"thelovehasgone.html\">The Love Has Gone</a><br>\n" +
+                "<a href=\"dontsaygoodbye.html\">Don't Say Goodbye</a><br>\n" +
+                "<a href=\"slippingaway.html\">Slipping Away</a><br>\n" +
+                "<a href=\"nomorelookingforlove.html\">No More Looking For Love</a><br>\n" +
+                "<a href=\"youmoveme.html\">You Move Me</a><br>\n" +
+                "<a href=\"whenifallinlove.html\">When I Fall In Love</a><br>\n" +
+                "</div>\n" +
+                "</div>\n" +
+                "\n" +
+                "<!-- album songlists end -->\n" +
+                "\n" +
+                "        <form class=\"search noprint\" method=\"get\" action=\"//search.azlyrics.com/search.php\" role=\"search\">\n" +
+                "         <div style=\"margin-bottom:15px\" class=\"input-group\">  \n" +
+                "\t\t<input type=\"text\" class=\"form-control\" placeholder=\"\" name=\"q\">\n" +
+                "       \t\t<span class=\"input-group-btn\">\n" +
+                "            \t  <button class=\"btn btn-primary\" type=\"submit\"><span class=\"glyphicon glyphicon-search\"></span> Search</button>\n" +
+                "          \t</span>\n" +
+                " \t  </div>   \n" +
+                "\t</form>\n" +
+                "\n" +
+                "<div class=\"noprint visible-xs-block\" style=\"margin-top:5px;margin-bottom:5px\">\n" +
+                "<span id=\"cf_rect_bottom\"></span>\n" +
+                "</div>\n" +
+                "\n" +
+                "</div> <!-- content -->\n" +
+                "\n" +
+                "<div class=\"col-lg-2 text-center hidden-md hidden-sm hidden-xs noprint\">\n" +
+                "   <div class=\"sky-ad\"></div>\n" +
+                "</div>\n" +
+                "</div>\n" +
+                "</div>  <!-- container main-page -->\n" +
+                "\n" +
+                "<!-- nav bottom -->\n" +
+                "       <nav class=\"navbar navbar-default navbar-bottom\">\n" +
+                "          <div class=\"container text-center\">\n" +
+                "          <ul class=\"nav navbar-nav navbar-center\">\n" +
+                "            <li><a href=\"//www.azlyrics.com/add.php\" onclick=\"document.forms['addsong'].submit();return false;\">Submit Lyrics</a></li>\n" +
+                "            <li><a href=\"//www.stlyrics.com\">Soundtracks</a></li>\n" +
+                "            <li><a href=\"//www.facebook.com/pages/AZLyricscom/154139197951223\">Facebook</a></li>\n" +
+                "            <li><a href=\"//www.azlyrics.com/contact.html\">Contact Us</a></li>\n" +
+                "          </ul>\n" +
+                "          </div> \n" +
+                "        </nav>\n" +
+                "\n" +
+                "<!-- bot ban -->\n" +
+                "  <div class=\"lboard-wrap noprint\">\n" +
+                "  <div class=\"container\">\n" +
+                "    <div class=\"row\">\n" +
+                "       <div class=\"col-xs-12 top-ad text-center\">\n" +
+                "          <span id=\"cf_banner_bottom\"></span>\n" +
+                "       </div>\n" +
+                "    </div>\n" +
+                "  </div>\n" +
+                "  </div>\n" +
+                "\n" +
+                "<!-- footer -->\n" +
+                "     <nav class=\"navbar navbar-footer noprint\">\n" +
+                "          <div class=\"container text-center\">\n" +
+                "          <ul class=\"nav navbar-nav navbar-center\">\n" +
+                "            <li><a href=\"//www.azlyrics.com/adv.html\">Advertise Here</a></li>\n" +
+                "            <li><a href=\"//www.azlyrics.com/privacy.html\">Privacy Policy</a></li>\n" +
+                "            <li><a href=\"//www.azlyrics.com/copyright.html\">DMCA Policy</a></li>\n" +
+                "          </ul>\n" +
+                "          </div> \n" +
+                "     </nav>\n" +
+                "     <div class=\"footer-wrap\">\n" +
+                "          <div class=\"container\">\n" +
+                "          <div class=\"noprint\"><span style=\"font-weight:bold;line-height:54px;vertical-align:top;\">Powered by </span><img src=\"//www.azlyrics.com/images/mxm.png\" width=\"184\" height=\"54\" alt=\"MusixMatch\"></div>\n" +
+                "          <small>\n" +
+                "             Rick Astley lyrics are property and copyright of their owners. \"Never Gonna Give You Up\" lyrics provided for educational purposes and personal use only.<br>\n" +
+                "             <script type=\"text/javascript\">\n" +
+                "                curdate=new Date();\n" +
+                "                document.write(\"<strong>Copyright &copy; 2000-\"+curdate.getFullYear()+\" AZLyrics.com<\\/strong>\");\n" +
+                "             </script>\n" +
+                "          </small>\n" +
+                "          </div>\n" +
+                "     </div>\n" +
+                "\n" +
+                "<script>\n" +
+                "cf_page_artist = ArtistName;\n" +
+                "cf_page_song = SongName;\n" +
+                "cf_page_genre = \"pop\";\n" +
+                "</script>\n" +
+                "<script src=\"//cdn.clickfuse.com/publishers/azlyrics/single.min.js\"></script>\n" +
+                "\n" +
+                "<script type=\"text/javascript\">\n" +
+                "\n" +
+                "  var _gaq = _gaq || [];\n" +
+                "  _gaq.push(['_setAccount', 'UA-4309237-1']);\n" +
+                "\n" +
+                "  (function() {\n" +
+                "    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;\n" +
+                "    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';\n" +
+                "    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);\n" +
+                "  })();\n" +
+                "\n" +
+                "</script>\n" +
+                "    <div id=\"CssFailCheck\" class=\"hidden\" style=\"height:1px;\"></div>\n" +
+                "    <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js\"></script>\n" +
+                "    <script>window.jQuery || document.write('<script src=\"//www.azlyrics.com/local/jquery.min.js\"><\\/script>')</script>\n" +
+                "    <script>\n" +
+                "      $(function () {\n" +
+                "       if ($('#CssFailCheck').is(':visible') === true) {\n" +
+                "         $('<link rel=\"stylesheet\" type=\"text/css\" href=\"//www.azlyrics.com/bs/css/bootstrap.min.css\"><link rel=\"stylesheet\" href=\"//www.azlyrics.com/bsaz.css\">').appendTo('head');\n" +
+                "       }\n" +
+                "      });\n" +
+                "    </script>\n" +
+                "    <script src=\"//www.azlyrics.com/collapse.js\"></script>\n" +
+                "    <script type=\"text/javascript\" src=\"https://tracking.musixmatch.com/t1.0/m_js/e_0/sn_0/l_13343320/su_0/tr_kuidlGxnLc3XwQPQMEKDzyUZbWVwOLgTKrWdYCGo1xwyhpgPEZIDxPIJS36Etprwu25NGBVl1ZNRBBJC6lJBTUJLqHOXnAb42Cg3ppxgwz_KNCn4eLlByewajrwIJRKxuTtwKWMr-p3cRzxh-sGVzw6ukAUaGBB4TJi67nuiHb7FLu07sLOxqaCmHWqoSq64DWtRx2gowWGsUwi2LrwrnBS0wl7W6aRzGEyaKOSatX4WXHG3wTze_zI3ICgERr35rUX20AwG6hItSkZLmMx9gvFqWZnK1JDj7yiNwFIhtwu1Llu3NZljyWuZQMPKjxeqyFgmXFN0zWLbqVNDnXQ-MvmZcn4ay2sjEMtJeRdWpY8k0zQqitGpBOr6G756Y_fF/\"></script>\n" +
+                "  </body>\n" +
+                "</html>");
+
+        /*int l = testerHTMLLines.size();
+        while(l > 0){
+            int i = 0;
+            System.out.println(testerHTMLLines.get(i));
+            i++;
+            l--;
+        }*/
 
 
     }

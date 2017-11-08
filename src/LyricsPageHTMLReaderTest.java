@@ -23,25 +23,34 @@ public class LyricsPageHTMLReaderTest {
         lyEndRefL = LYRIC_END.length();*/
     }
 
+    int startPosition = 0;
     public ArrayList<String> separateWords(String phrase){
         int numLetters = 0;
-        int startPosition = 0;
         int phraseLength = phrase.length();
+        System.out.println(phraseLength);
         for(int i = 0; i < phraseLength; i++){
             String currentCharacter = phrase.substring(i, i + 1);
-            if(!currentCharacter.equals(" ") || i != phraseLength){
-                numLetters++;
+            System.out.println(currentCharacter + numLetters);
+            if(!currentCharacter.equals(" ") /*|| i = phraseLength*/){
+                if(i != phraseLength - 1){
+                    numLetters++;
+                }
+
             }
             else{
-                String currentWord = phrase.substring(startPosition, startPosition + numLetters);
+                String currentWord = phrase.substring(startPosition, startPosition + numLetters + 1);
+                System.out.println(phrase);
+                //System.out.println("" + startPosition + " " + numLetters);
+                System.out.println(currentWord);
                 words.add(currentWord);
                 startPosition += numLetters;
+                numLetters++;
             }
         }
         return words;
     }
 
-    public String createLyricsGoogleSearch(ArrayList<String> titleWords, ArrayList<String> artistWords){
+    public String createAToZLyricsSearchLink(ArrayList<String> titleWords, ArrayList<String> artistWords){
         for(int i = 0; i < artistWords.size(); i++){
             String word = artistWords.get(i);
             aToZLyricsURL = "https://www.azlyrics.com/lyrics/" + word;
