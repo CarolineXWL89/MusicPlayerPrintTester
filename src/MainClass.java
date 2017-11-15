@@ -2182,7 +2182,7 @@ public class MainClass {
         LyricsPageHTMLReaderTest lyricsPageHTMLReaderTest = new LyricsPageHTMLReaderTest();
 
         ArrayList<String> title = lyricsPageHTMLReaderTest.separateWords("Never Gonna Give You Up");
-        ArrayList<String> artist = lyricsPageHTMLReaderTest.separateWords("Rick Astly");
+        //ArrayList<String> artist = lyricsPageHTMLReaderTest.separateWords("Rick Astly");
         //String lyricsSearchLink = lyricsPageHTMLReaderTest.createAToZLyricsSearchLink(title, artist);
         //System.out.println(lyricsSearchLink);
 

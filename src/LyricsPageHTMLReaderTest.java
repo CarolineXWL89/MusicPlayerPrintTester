@@ -23,30 +23,41 @@ public class LyricsPageHTMLReaderTest {
         lyEndRefL = LYRIC_END.length();*/
     }
 
-    int startPosition = 0;
+    int startPosition1 = 0;
+    int startPosition2 = 0;
     public ArrayList<String> separateWords(String phrase){
         int numLetters = 0;
         int phraseLength = phrase.length();
         System.out.println(phraseLength);
         for(int i = 0; i < phraseLength; i++){
             String currentCharacter = phrase.substring(i, i + 1);
-            System.out.println(currentCharacter + numLetters);
-            if(!currentCharacter.equals(" ") /*|| i = phraseLength*/){
+            System.out.println(currentCharacter + " " + numLetters);
+            if(!(currentCharacter.equals(" ")) && !(currentCharacter.equals("  "))/*i = phraseLength*/){
                 if(i != phraseLength - 1){
                     numLetters++;
                 }
+                System.out.print("startPosition1: " + startPosition1 + " ");
+                //System.out.println(currentCharacter.equals(" "));
+                System.out.println("startPosition2: " + startPosition2 + " ");
 
             }
             else{
-                String currentWord = phrase.substring(startPosition, startPosition + numLetters + 1);
-                System.out.println(phrase);
-                //System.out.println("" + startPosition + " " + numLetters);
-                System.out.println(currentWord);
+                System.out.print("There was a space: check --> ");
+                System.out.print("startPosition1: " + startPosition1 + " ");
+                System.out.println("numLetters: " + numLetters);
+                String currentWord = phrase.substring(startPosition1, startPosition1 + numLetters + 1);
+                //phrase = phrase.substring(numLetters);
+                //System.out.println(phrase);
+                //System.out.println("" + startPosition1 + " " + numLetters);
+                System.out.println("Current Word: " + currentWord);
+                startPosition1 += numLetters;
                 words.add(currentWord);
-                startPosition += numLetters;
-                numLetters++;
+                numLetters = 0;
+                //numLetters++;
             }
         }
+        String lastWord = phrase.substring(startPosition1, startPosition1 + numLetters + 1);
+        System.out.println(lastWord);
         return words;
     }
 
