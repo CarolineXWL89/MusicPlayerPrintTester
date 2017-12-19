@@ -7,6 +7,11 @@
     <JAVADOC />
     <SOURCES>
       <root url="jar://$KOTLIN_BUNDLED$/lib/kotlin-runtime-sources.jar!/" />
+      <root url="file://$KOTLIN_BUNDLED$/lib" />
+      <root url="file://$PROJECT_DIR$/../AndroidProjects/boilerpipe-master/boilerpipe-master/boilerpipe-common/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../AndroidProjects/boilerpipe-master/boilerpipe-master/boilerpipe-demo/src/main/java" />
+      <root url="file://$PROJECT_DIR$/../AndroidProjects/boilerpipe-master/boilerpipe-master/nekohtml/src/main/java" />
     </SOURCES>
+    <jarDirectory url="file://$KOTLIN_BUNDLED$/lib" recursive="false" type="SOURCES" />
   </library>
 </component>

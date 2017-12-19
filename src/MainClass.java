@@ -2179,15 +2179,15 @@ public class MainClass {
         //System.out.println(titleToSpotifyURITest.constructSearchURL());
         //System.out.println(titleToSpotifyURITest.getURIFromHTML(htmlForURI));
 
-        LyricsPageHTMLReaderTest lyricsPageHTMLReaderTest = new LyricsPageHTMLReaderTest();
+        //LyricsPageHTMLReaderTest lyricsPageHTMLReaderTest = new LyricsPageHTMLReaderTest();
 
-        ArrayList<String> title = lyricsPageHTMLReaderTest.separateWords("Never Gonna Give You Up");
+        //ArrayList<String> title = lyricsPageHTMLReaderTest.separateWords("Never Gonna Give You Up");
         //ArrayList<String> artist = lyricsPageHTMLReaderTest.separateWords("Rick Astly");
         //String lyricsSearchLink = lyricsPageHTMLReaderTest.createAToZLyricsSearchLink(title, artist);
         //System.out.println(lyricsSearchLink);
 
-        ArrayList<String> testerHTMLLines = new ArrayList<>();
-        testerHTMLLines = lyricsPageHTMLReaderTest.findLyrics("\n" +
+        //ArrayList<String> testerHTMLLines = new ArrayList<>();
+        /*testerHTMLLines = lyricsPageHTMLReaderTest.findLyrics("\n" +
                 "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
                 "<head>\n" +
@@ -2611,6 +2611,16 @@ public class MainClass {
             l--;
         }*/
 
-
+        WordSplitterTester wordSplitterTester = new WordSplitterTester("Mark your calendars folks. December 26th we will have our first ever eggnog mile!!! Yes that's right, a mi");
+        ArrayList<String> test = wordSplitterTester.separateWords("Mark your calendars folks. December 26th we will have our first ever eggnog mile!!! Yes that's right, a mi");
+        //int i = "Mark your calendars folks. December 26th we will have our first ever eggnog mile!!! Yes that's right, a mi".length();
+        //int k = "Mark your calendars folks. December 26th we will have our first ever eggnog mile!!! Yes that's right, a mi".length();
+        int i = 19;
+        int k = 19;
+        while(i > 0){
+            System.out.println(test.get(k - i));
+            //System.out.println("k = " + k + " " + "i = " + i);
+            i--;
+        }
     }
 }

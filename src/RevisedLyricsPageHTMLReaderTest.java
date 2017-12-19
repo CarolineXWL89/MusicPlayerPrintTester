@@ -1,3 +1,6 @@
+import de.l3s.boilerpipe.BoilerpipeProcessingException;
+import de.l3s.boilerpipe.extractors.ArticleExtractor;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -18,14 +21,18 @@ public class RevisedLyricsPageHTMLReaderTest {
         } //why is there a MalformedURLException now???
     }
 
-    public String getLyrics(String urlToBoilerpipe){
+    public String getBoilerPipeURL(String urlToBoilerpipe){
         boilerPipeURL = "http://boilerpipe-web.appspot.com/extract?url=" + lyricsWebsiteURL + "&output=text";
-        try {
+        /*try {
             realBoilerPipeURL = new URL(boilerPipeURL);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } //why is there a MalformedURLException now???
-        realLyrics = ArticleExtractor.INSTANCE.getText(realBoilerPipeURL);
-        return "";
+        try {
+            realLyrics = ArticleExtractor.INSTANCE.getText(realBoilerPipeURL);
+        } catch (BoilerpipeProcessingException e) {
+            e.printStackTrace();
+        }*/
+        return boilerPipeURL;
     }
 }

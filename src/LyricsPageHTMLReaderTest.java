@@ -36,6 +36,7 @@ public class LyricsPageHTMLReaderTest {
                 if(i != phraseLength - 1){
                     numLetters++;
                 }
+
                 System.out.print("startPosition1: " + startPosition1 + " ");
                 //System.out.println(currentCharacter.equals(" "));
                 System.out.println("startPosition2: " + startPosition2 + " ");
@@ -45,12 +46,12 @@ public class LyricsPageHTMLReaderTest {
                 System.out.print("There was a space: check --> ");
                 System.out.print("startPosition1: " + startPosition1 + " ");
                 System.out.println("numLetters: " + numLetters);
-                String currentWord = phrase.substring(startPosition1, startPosition1 + numLetters + 1);
+                String currentWord = phrase.substring(startPosition1, startPosition1 + numLetters);
                 //phrase = phrase.substring(numLetters);
                 //System.out.println(phrase);
                 //System.out.println("" + startPosition1 + " " + numLetters);
                 System.out.println("Current Word: " + currentWord);
-                startPosition1 += numLetters;
+                startPosition1 += numLetters + 1;
                 words.add(currentWord);
                 numLetters = 0;
                 //numLetters++;
